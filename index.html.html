@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlantic Holdings — Building. Supplying. Supporting progress.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FFFFFF;
+    --bg-alt: #F5F6F8;
+    --navy: #10233F;
+    --navy-2: #1D3A63;
+    --accent: #2F6E8C;
+    --ink: #10151C;
+    --muted: #5B6470;
+    --line: #DDE1E6;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg); color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width: 1180px; margin:0 auto; padding: 0 32px; }
+  section{ padding: 100px 0; }
+  h1,h2,h3{ font-weight:600; letter-spacing:-0.01em; line-height:1.12; color: var(--navy); }
+
+  /* Header */
+  header{ position: sticky; top:0; z-index:50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding: 22px 32px; max-width:1180px; margin:0 auto; }
+  .brand{ font-size:1.1rem; font-weight:700; color: var(--navy); letter-spacing: 0.01em; }
+  .navlinks{ display:flex; gap:36px; font-size:0.92rem; color: var(--muted); }
+  .navlinks a:hover{ color: var(--navy); }
+  .navcall{ background: var(--navy); color:#fff; padding:10px 22px; font-size:0.88rem; font-weight:500; border-radius:3px; white-space:nowrap; flex-shrink:0; }
+  .navcall:hover{ background: var(--navy-2); }
+  @media (max-width:760px){ .navlinks{ display:none; } }
+  @media (max-width:480px){ .navcall{ padding:8px 14px; font-size:0.78rem; } }
+
+  /* Hero */
+  .hero{ padding: 90px 0 80px; border-bottom: 1px solid var(--line); }
+  .hero-grid{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items:end; }
+  .kicker{ color: var(--accent); font-size:0.95rem; font-weight:600; margin-bottom:20px; }
+  .hero h1{ font-size: clamp(2.4rem, 5vw, 3.6rem); max-width: 14ch; }
+  .hero-side{ border-left: 1px solid var(--line); padding-left: 40px; }
+  .hero-side p{ color: var(--muted); font-size: 1.05rem; margin-bottom: 30px; }
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary{ background: var(--navy); color:#fff; padding:14px 28px; font-size:0.92rem; font-weight:500; border-radius:3px; }
+  .btn-primary:hover{ background: var(--navy-2); }
+  .btn-ghost{ border:1px solid var(--line); padding:14px 28px; font-size:0.92rem; font-weight:500; color: var(--navy); border-radius:3px; }
+  .btn-ghost:hover{ border-color: var(--navy); }
+  @media (max-width:760px){ .hero-grid{ grid-template-columns:1fr; } .hero-side{ border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:30px; } }
+
+  /* Stats */
+  .stats{ background: var(--bg-alt); border-bottom: 1px solid var(--line); }
+  .stats .wrap{ display:grid; grid-template-columns: repeat(4,1fr); padding: 44px 32px; }
+  .stat{ padding: 0 24px; border-left: 1px solid var(--line); }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat dt{ color: var(--muted); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:8px; }
+  .stat dd{ color: var(--navy); font-size:1.2rem; font-weight:600; }
+  @media (max-width:760px){ .stats .wrap{ grid-template-columns: repeat(2,1fr); row-gap:28px; } .stat{ border-left:none; padding-left:0; } }
+
+  /* Services */
+  .section-head{ max-width:620px; margin-bottom:56px; }
+  .kicker.center{ display:block; }
+  .section-head h2{ font-size: clamp(1.9rem, 3.6vw, 2.5rem); }
+  .services-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:0; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+  .service{ padding: 32px 28px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .service .num{ color: var(--accent); font-size:0.85rem; font-weight:600; margin-bottom:16px; }
+  .service h3{ font-size:1.12rem; margin-bottom:10px; }
+  .service p{ color: var(--muted); font-size:0.92rem; margin-bottom:18px; }
+  .service-photo{
+    aspect-ratio: 4/3; border: 1px dashed var(--line); border-radius:2px;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--bg-alt); overflow:hidden;
+  }
+  .service-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .service-photo span{ color: var(--muted); font-size:0.76rem; text-align:center; padding:0 16px; }
+  @media (max-width:900px){ .services-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width:560px){ .services-grid{ grid-template-columns: 1fr; } }
+
+  /* About */
+  .about{ background: var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .about-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:70px; }
+  .about-grid h2{ font-size: clamp(1.8rem, 3.4vw, 2.3rem); max-width:12ch; }
+  .about-copy p{ color: var(--muted); margin-bottom:18px; }
+  .credentials{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 30px; }
+  .credential{ border-top: 2px solid var(--navy); padding-top: 14px; }
+  .credential dt{ color: var(--muted); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px; }
+  .credential dd{ color: var(--navy); font-weight:600; font-size:0.98rem; }
+  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; gap:44px; } }
+
+  /* CTA */
+  .cta{ text-align:center; }
+  .cta h2{ font-size: clamp(1.9rem, 4vw, 2.6rem); max-width:18ch; margin: 0 auto 24px; }
+  .cta p{ color: var(--muted); max-width:42ch; margin:0 auto 36px; }
+
+  footer{ border-top:1px solid var(--line); padding:48px 0 36px; }
+  .foot-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:28px; }
+  .foot-brand{ font-weight:700; color: var(--navy); }
+  .foot-links{ display:flex; gap:28px; color: var(--muted); font-size:0.9rem; }
+  .foot-links a:hover{ color: var(--navy); }
+  .foot-note{ margin-top:32px; color: var(--muted); font-size:0.8rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">ATLANTIC HOLDINGS</div>
+    <nav class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="navcall" href="tel:0242720242">Call 0242 720 242</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Harare, Zimbabwe</div>
+      <h1>Building. Supplying. Supporting progress.</h1>
+    </div>
+    <div class="hero-side">
+      <p>Construction, plant hire, material supply and hardware — together under one roof, so your project keeps moving without chasing four different suppliers.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#contact">Get in touch</a>
+        <a class="btn-ghost" href="#services">Our services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <dl class="wrap">
+    <div class="stat"><dt>Registered</dt><dd>CIPZ 95071A0242026</dd></div>
+    <div class="stat"><dt>Incorporated</dt><dd>August 2022</dd></div>
+    <div class="stat"><dt>Based in</dt><dd>Hamilton Heights, Harare</dd></div>
+    <div class="stat"><dt>Services</dt><dd>4 integrated lines</dd></div>
+  </dl>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">What we do</div>
+      <h2>Four disciplines, one point of contact.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service"><div class="num">01</div><h3>Construction</h3><p>Full-scope building and civil works, from groundwork through to handover.</p><div class="service-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Building_Under_Construction_01.JPG?width=800" alt="Ongoing construction project" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span style="display:none;">Photo: ongoing construction project</span></div></div>
+      <div class="service"><div class="num">02</div><h3>Plant &amp; equipment hire</h3><p>Machinery available on-demand, so your site is never waiting.</p><div class="service-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/CAT excavator ready for People's Park construction.jpg?width=800" alt="Excavator and plant equipment" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span style="display:none;">Photo: JCB / excavator on site</span></div></div>
+      <div class="service"><div class="num">03</div><h3>Material supply</h3><p>Reliable sourcing and delivery of the materials your project depends on.</p><div class="service-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pile of limestone gravel on Furilden 1.jpg?width=800" alt="Aggregate and building materials" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span style="display:none;">Photo: aggregate / materials stockpile</span></div></div>
+      <div class="service"><div class="num">04</div><h3>Hardware</h3><p>Everything from fixings to finishing supplies, stocked and ready.</p><div class="service-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Range of hardware and fasteners.jpg?width=800" alt="Hardware and tools" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span style="display:none;">Photo: hardware / tools</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <h2>Built on the ground we work on.</h2>
+    <div>
+      <div class="about-copy">
+        <p>Atlantic Holdings was incorporated in August 2022 and is based at Hamilton Heights in Harare. We work across construction, hardware, material supply and equipment hire — disciplines usually scattered across separate suppliers, brought together so your project moves without delay.</p>
+        <p>Whatever stage your project is at, one call gets you the people, materials and machinery to keep it on schedule.</p>
+      </div>
+      <dl class="credentials">
+        <div class="credential"><dt>Registration</dt><dd>CIPZ 95071A0242026</dd></div>
+        <div class="credential"><dt>Location</dt><dd>Hamilton Heights, Harare</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <div class="kicker center" style="text-align:center;">Get in touch</div>
+    <h2>Ready to move your project forward?</h2>
+    <p>Speak to us about construction, plant hire, materials or hardware — one call covers all four.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a class="btn-primary" href="tel:0242720242">Call 0242 720 242</a>
+      <a class="btn-ghost" href="mailto:info@atlanticholdings.co.zw">Email us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">ATLANTIC HOLDINGS</div>
+      <div class="foot-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="tel:0242720242">0242 720 242</a>
+        <a href="mailto:info@atlanticholdings.co.zw">info@atlanticholdings.co.zw</a>
+      </div>
+    </div>
+    <div class="foot-note">© 2026 Atlantic Holdings. Hamilton Heights, Harare, Zimbabwe. CIPZ 95071A0242026.</div>
+  </div>
+</footer>
+
+</body>
+</html>
